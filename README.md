@@ -144,9 +144,14 @@ Key variables:
 | Resource | Link |
 |---|---|
 | Definition of Done | [docs/definition-of-done.md](docs/definition-of-done.md) |
+| Quality Requirements | [docs/quality-requirements.md](docs/quality-requirements.md) |
+| Quality Requirement Tests | [docs/quality-requirement-tests.md](docs/quality-requirement-tests.md) |
+| Testing Strategy | [docs/testing.md](docs/testing.md) |
+| User Acceptance Tests | [docs/user-acceptance-tests.md](docs/user-acceptance-tests.md) |
 | Roadmap | [docs/roadmap.md](docs/roadmap.md) |
 | User Stories | [docs/user-stories.md](docs/user-stories.md) |
 | Changelog | [CHANGELOG.md](CHANGELOG.md) |
 | Week 2 Reports | [reports/week2/](reports/week2/README.md) |
 | Week 3 Reports | [reports/week3/](reports/week3/README.md) |
+| Week 4 Reports | [reports/week4/](reports/week4/README.md) |
 | License | [MIT](LICENSE) |

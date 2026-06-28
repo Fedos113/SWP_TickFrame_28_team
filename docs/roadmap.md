@@ -33,11 +33,11 @@
 
 ---
 
-## Sprint 3 — v1.2.0 Drawing Tools + Quality Gates
+## Sprint 3 — v1.1.0 Drawing Tools + Quality Gates
 
 | Field | Value |
 |---|---|
-| **Milestone** | [Sprint 3 — Assignment 4 — v1.2.0](https://github.com/Fedos113/SWP_TickFrame_28_team/milestone/3) |
+| **Milestone** | [Sprint 3 — Assignment 4 — v1.1.0](https://github.com/Fedos113/SWP_TickFrame_28_team/milestone/3) |
 | **Dates** | Week 4 (2026-06-22 – 2026-06-29) |
 | **Goal** | Replace mock pattern analyzer with real ML, deliver drawing toolbar, and establish quality foundations. |
 | **Focus** | Drawing tools, SQLite persistence, pattern analysis UI, quality gates, CI, test coverage |

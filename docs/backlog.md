@@ -48,9 +48,9 @@ A PBI is **Done** when:
 
 ---
 
-## Sprint 3 — v1.2.0 (Current)
+## Sprint 3 — v1.1.0 (Current)
 
-**Milestone:** [Sprint 3 — Assignment 4 — v1.2.0](https://github.com/Fedos113/SWP_TickFrame_28_team/milestone/3)
+**Milestone:** [Sprint 3 — Assignment 4 — v1.1.0](https://github.com/Fedos113/SWP_TickFrame_28_team/milestone/3)
 
 **Goal:** Drawing toolbar with 13 tools, 50k candle support, SQLite persistence, WebSocket heartbeat, pattern analysis UI, coin sidebar enhancements, redact/undo system
 
