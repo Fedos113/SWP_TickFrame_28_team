@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-import asyncio
 import json
 import sqlite3
+import threading
 from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
@@ -12,12 +12,20 @@ DB_PATH = DATA_DIR / "tickframe.db"
 class DatabaseService:
     def __init__(self, db_path: str | Path | None = None):
         self._db = str(db_path or DB_PATH)
-        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        self._lock = threading.RLock()
+        self._conn_cache: sqlite3.Connection | None = None
+        db_parent = Path(self._db).parent
+        db_parent.mkdir(parents=True, exist_ok=True)
 
     def _conn(self) -> sqlite3.Connection:
-        conn = sqlite3.connect(self._db)
-        conn.row_factory = sqlite3.Row
-        return conn
+        with self._lock:
+            if self._conn_cache is None:
+                conn = sqlite3.connect(self._db)
+                conn.row_factory = sqlite3.Row
+                conn.execute("PRAGMA journal_mode = DELETE")
+                conn.execute("PRAGMA synchronous = NORMAL")
+                self._conn_cache = conn
+            return self._conn_cache
 
     def _init_tables(self) -> None:
         with self._conn() as conn:
@@ -70,8 +78,7 @@ class DatabaseService:
                 conn.execute("ALTER TABLE drawings ADD COLUMN symbol TEXT NOT NULL DEFAULT ''")
 
     async def init(self) -> None:
-        loop = asyncio.get_running_loop()
-        await loop.run_in_executor(None, self._init_tables)
+        self._init_tables()
 
     # --- Settings ---
 
@@ -93,16 +100,13 @@ class DatabaseService:
             return {r["key"]: r["value"] for r in rows}
 
     async def get_setting(self, key: str) -> str | None:
-        loop = asyncio.get_running_loop()
-        return await loop.run_in_executor(None, self._get_setting, key)
+        return self._get_setting(key)
 
     async def set_setting(self, key: str, value: str) -> None:
-        loop = asyncio.get_running_loop()
-        await loop.run_in_executor(None, self._set_setting, key, value)
+        self._set_setting(key, value)
 
     async def get_all_settings(self) -> dict[str, str]:
-        loop = asyncio.get_running_loop()
-        return await loop.run_in_executor(None, self._all_settings)
+        return self._all_settings()
 
     # --- Toolbar Position ---
 
@@ -123,12 +127,10 @@ class DatabaseService:
             return None
 
     async def save_toolbar_position(self, left: int, top: int) -> None:
-        loop = asyncio.get_running_loop()
-        await loop.run_in_executor(None, self._save_toolbar_position, left, top)
+        self._save_toolbar_position(left, top)
 
     async def load_toolbar_position(self) -> dict | None:
-        loop = asyncio.get_running_loop()
-        return await loop.run_in_executor(None, self._load_toolbar_position)
+        return self._load_toolbar_position()
 
     # --- Coin Icons ---
 
@@ -150,12 +152,10 @@ class DatabaseService:
     async def save_coin_icons(self, icons: dict[str, str]) -> None:
         if not icons:
             return
-        loop = asyncio.get_running_loop()
-        await loop.run_in_executor(None, self._save_coin_icons, icons)
+        self._save_coin_icons(icons)
 
     async def load_coin_icons(self) -> dict[str, str]:
-        loop = asyncio.get_running_loop()
-        return await loop.run_in_executor(None, self._load_coin_icons)
+        return self._load_coin_icons()
 
     # --- Drawings ---
 
@@ -183,12 +183,10 @@ class DatabaseService:
                 )
 
     async def load_drawings(self, symbol: str) -> list[dict]:
-        loop = asyncio.get_running_loop()
-        return await loop.run_in_executor(None, self._load_drawings, symbol)
+        return self._load_drawings(symbol)
 
     async def save_drawings(self, symbol: str, drawings: list[dict]) -> None:
-        loop = asyncio.get_running_loop()
-        await loop.run_in_executor(None, self._save_drawings, symbol, drawings)
+        self._save_drawings(symbol, drawings)
 
     # --- Drawings Blob (new library format) ---
 
@@ -211,12 +209,10 @@ class DatabaseService:
             return None
 
     async def save_drawings_blob(self, symbol: str, data: list | dict | str) -> None:
-        loop = asyncio.get_running_loop()
-        await loop.run_in_executor(None, self._save_drawings_blob, symbol, data)
+        self._save_drawings_blob(symbol, data)
 
     async def load_drawings_blob(self, symbol: str) -> list | dict | None:
-        loop = asyncio.get_running_loop()
-        return await loop.run_in_executor(None, self._load_drawings_blob, symbol)
+        return self._load_drawings_blob(symbol)
 
     # --- Candles ---
 
@@ -278,25 +274,19 @@ class DatabaseService:
     async def save_candles(self, symbol: str, interval: str, candles: list[dict]) -> None:
         if not candles:
             return
-        loop = asyncio.get_running_loop()
-        await loop.run_in_executor(None, self._save_candles, symbol, interval, candles)
+        self._save_candles(symbol, interval, candles)
 
     async def load_candles(self, symbol: str, interval: str) -> list[dict]:
-        loop = asyncio.get_running_loop()
-        return await loop.run_in_executor(None, self._load_candles, symbol, interval)
+        return self._load_candles(symbol, interval)
 
     async def load_last_n_candles(self, symbol: str, interval: str, n: int) -> list[dict]:
-        loop = asyncio.get_running_loop()
-        return await loop.run_in_executor(None, self._load_last_n_candles, symbol, interval, n)
+        return self._load_last_n_candles(symbol, interval, n)
 
     async def load_candles_before(self, symbol: str, interval: str, n: int, before: int) -> list[dict]:
-        loop = asyncio.get_running_loop()
-        return await loop.run_in_executor(None, self._load_candles_before, symbol, interval, n, before)
+        return self._load_candles_before(symbol, interval, n, before)
 
     async def get_candle_range(self, symbol: str, interval: str) -> tuple[int, int] | None:
-        loop = asyncio.get_running_loop()
-        return await loop.run_in_executor(None, self._get_candle_range, symbol, interval)
+        return self._get_candle_range(symbol, interval)
 
     async def count_candles(self, symbol: str, interval: str) -> int:
-        loop = asyncio.get_running_loop()
-        return await loop.run_in_executor(None, self._count_candles, symbol, interval)
+        return self._count_candles(symbol, interval)

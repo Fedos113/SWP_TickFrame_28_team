@@ -20,5 +20,5 @@ jobs:
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --verbose --no-progress --exclude 'http://' --exclude 'https://gitlab\.pg\.innopolis\.university' --exclude 'https://drive\.google\.com' --exclude 'releases/tag/v0\.2\.0' --exclude 'releases/tag/SemVer-MVPv1' --exclude 'file://' --exclude-path 'assignments/' './**/*.md'
+          args: --verbose --no-progress --exclude 'http://localhost:8000' --exclude 'http://10\.93\.26\.164:8000' --exclude 'https://gitlab\.pg\.innopolis\.university' --exclude 'https://drive\.google\.com' --exclude 'releases/tag/v0\.2\.0' --exclude 'releases/tag/SemVer-MVPv1' --exclude 'file://' --exclude-path 'assignments/' './**/*.md'
           fail: true
