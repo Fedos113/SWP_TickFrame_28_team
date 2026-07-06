@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/Fedos113/SWP_TickFrame_28_team">
-    <img src="image.png" alt="Logo" width="80" height="80">
+    <img src="image.png" alt="Logo" width="800" height="800">
   </a>
   <h1 align="center">SWP TickFrame — Team 28</h1>
   <p align="center">
