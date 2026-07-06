@@ -4,7 +4,7 @@ All notable user-visible changes to this project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-## [Unreleased]
+## [2.0.0] - 2026-07-06
 
 ### Added
 - **UI redesign — Coin icons, Fear & Greed Index, sidebar overhaul**: Coin rows now show icon images (CoinGecko), ticker symbol, full name, and 24h change %. Fear & Greed Index widget added to sidebar with SVG gauge. Lucide icons integrated for UI elements. Dynamic price precision based on magnitude. ([#158](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/158))
@@ -123,7 +123,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-[Unreleased]: https://github.com/Fedos113/SWP_TickFrame_28_team/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/Fedos113/SWP_TickFrame_28_team/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/Fedos113/SWP_TickFrame_28_team/compare/v1.1.0...v2.0.0
 [1.1.0]: https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v1.1.0
 [1.0.0]: https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/SemVer
 

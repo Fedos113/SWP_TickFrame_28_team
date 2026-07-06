@@ -1,8 +1,82 @@
-# SWP TickFrame — Team 28
+<div align="center">
+  <a href="https://github.com/Fedos113/SWP_TickFrame_28_team">
+    <img src="image.png" alt="Logo" width="80" height="80">
+  </a>
+  <h1 align="center">SWP TickFrame — Team 28</h1>
+  <p align="center">
+    <strong>FastAPI-based cryptocurrency chart workstation with real-time market data, live WebSocket streaming, ML pattern detection, and advanced drawing tools.</strong>
+  </p>
+  <p align="center">
+    <a href="#quick-start-docker">💻 Quick Start</a> •
+    <a href="http://localhost:8080">🌐 Live Demo</a> •
+    <a href="https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v2.0.0">📦 Release v2.0.0</a>
+  </p>
+</div>
 
-FastAPI-based cryptocurrency chart workstation with real-time Bybit market data, live price streaming via WebSockets, candlestick charts (Lightweight Charts v4), a canvas-based drawing toolbar (13 tools), SQLite persistence, and ML pattern analysis.
+**Latest Release:** [v2.0.0 (MVP v2)](https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v2.0.0) — 2026-07-06
 
-**Latest Release:** [v1.1.0](https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v1.1.0) (Sprint 3 Increment)
+---
+
+## Project Goals and Description
+
+**TickFrame** is an advanced cryptocurrency trading analysis workstation designed for technical pattern recognition and chart-based decision making. Built for traders and quantitative analysts, the platform integrates real-time market data from multiple exchanges (Bybit, Binance), provides interactive candlestick charting with 13 professional drawing tools, and leverages machine learning to automatically detect technical patterns (Head & Shoulders, Double Tops/Bottoms).
+
+**Core goals:**
+- 📊 **Real-time market analysis** with streaming WebSocket data and multi-interval support
+- 🎨 **Professional drawing toolkit** (13 tools: trend lines, Fibonacci, text annotations, etc.)
+- 🤖 **ML-powered pattern detection** (XGBoost-based Head & Shoulders and Double pattern recognition)
+- 💾 **Persistent workspace** (SQLite-backed settings, drawings, and candle data)
+- ⚡ **High-performance rendering** (<500ms pattern analysis, <1ms cache hits)
+- 🔐 **Privacy-first architecture** (local data storage, no external credentials required)
+
+---
+
+## Built With
+
+Core technologies powering TickFrame:
+
+| Technology | Purpose |
+|---|---|
+| **FastAPI** | High-performance REST API and WebSocket server |
+| **Lightweight Charts v5** | Interactive candlestick charting frontend |
+| **SQLite 3** | Persistent data storage (drawings, settings, candles) |
+| **XGBoost** | Machine learning classifier for pattern detection |
+| **Docker & Docker Compose** | Containerized deployment (backend + ML service) |
+| **ccxt** | Multi-exchange cryptocurrency data abstraction |
+| **boto3** | S3 integration for ML results storage |
+| **pytest** | Automated testing (unit, integration, quality requirement tests) |
+| **GitHub Actions** | CI/CD pipeline (lint, type-check, test, security) |
+
+---
+
+## Project Context Diagram
+
+```mermaid
+graph TB
+    Users["👥 Users / Traders"]
+    UI["🎨 TickFrame Web UI<br/>(Lightweight Charts v5, Drawing Tools)"]
+    Backend["⚡ FastAPI Backend<br/>(REST API, WebSocket Server)"]
+    Cache["💾 Multi-tier Cache<br/>(Memory → SQLite → Exchange)"]
+    Exchanges["🏦 Crypto Exchanges<br/>(Bybit, Binance APIs)"]
+    ML["🤖 ML Service<br/>(XGBoost Pattern Detector)"]
+    External["🌐 External APIs<br/>(CoinGecko, Alternative.me)"]
+    
+    Users -->|interact| UI
+    UI -->|WebSocket / REST| Backend
+    Backend -->|query / cache| Cache
+    Cache -->|paginated fetch| Exchanges
+    Backend -->|analyze patterns| ML
+    Backend -->|fetch metadata| External
+    UI -->|display patterns| Backend
+    
+    style Users fill:#e1f5ff
+    style UI fill:#fff3e0
+    style Backend fill:#f3e5f5
+    style Cache fill:#e8f5e9
+    style Exchanges fill:#fce4ec
+    style ML fill:#fff9c4
+    style External fill:#f1f8e9
+```
 
 ---
 
@@ -225,20 +299,20 @@ Key variables:
 
 ---
 
-## Documentation & Reports
+## Documentation Links
 
-| Resource | Link |
-|---|---|
-| Definition of Done | [docs/definition-of-done.md](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/docs/definition-of-done.md) |
-| Development Process | [docs/development-process.md](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/docs/development-process.md) |
-| Roadmap | [docs/roadmap.md](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/docs/roadmap.md) |
-| User Stories | [docs/user-stories.md](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/docs/user-stories.md) |
-| Changelog | [CHANGELOG.md](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/CHANGELOG.md) |
-| Quality Requirements | [docs/quality-requirements.md](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/docs/quality-requirements.md) |
-| Quality Requirement Tests | [docs/quality-requirement-tests.md](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/docs/quality-requirement-tests.md) |
-| Testing Strategy | [docs/testing.md](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/docs/testing.md) |
-| User Acceptance Tests | [docs/user-acceptance-tests.md](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/docs/user-acceptance-tests.md) |
-| Week 4 Reports | [reports/week4/](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/reports/week4/README.md) |
-| Week 2 Reports | [reports/week2/](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/reports/week2/README.md) |
-| Week 3 Reports | [reports/week3/](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/reports/week3/README.md) |
-| License | [MIT](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/LICENSE) |
+### Core Project Documentation
+- **[Development](docs/development-process.md)** — Team workflow, git strategy, and deployment process
+- **[Quality characteristics and attribute scenarios](docs/quality-requirements.md)** — QR-001 (Performance), QR-002 (Security), QR-003 (Accuracy) specifications
+- **[Quality assurance](docs/testing.md)** — Testing strategy, CI pipeline, and Quality Requirement Tests (QRT)
+- **[Build and deployment automation](docker-compose.yml)** — Docker Compose setup and [GitHub Actions CI/CD](.github/workflows)
+- **[Architecture](docs/architecture/README.md)** — System design, component diagrams, and deployment model
+
+### Supporting Resources
+- [Definition of Done](docs/definition-of-done.md) — Sprint completion criteria
+- [Roadmap](docs/roadmap.md) — Sprint-by-sprint delivery plan
+- [User Stories](docs/user-stories.md) — Feature backlog and acceptance scenarios
+- [User Acceptance Tests](docs/user-acceptance-tests.md) — UAT scenarios and customer validation criteria
+- [Changelog](CHANGELOG.md) — Release notes and version history
+- [Sprint Reports](reports/) — Weekly customer reviews (Week 2–5)
+- [License](LICENSE) — MIT
