@@ -163,7 +163,7 @@ Key entries:
 - `.env` — local environment configuration
 - `__pycache__/`, `*.pyc` — Python cache
 - `.venv/`, `venv/` — virtual environments
-- `tickframe/data/` — SQLite database (auto-created at runtime)
+- `tickframe/data/` — legacy SQLite database (auto-created at runtime for unit-test fallback; production uses PostgreSQL via Docker Compose)
 - `ml_service/data/` — ML model weights (large binaries)
 - `.mypy_cache/`, `.ruff_cache/`, `.pytest_cache/`
 - `*.egg-info/`, `dist/`, `build/` — packaging artifacts
@@ -186,7 +186,7 @@ These are documented in `.env.example` and `README.md`. The FastAPI backend read
 |---|---|---|
 | CI workflow | `.github/workflows/ci.yml` | Lint → type-check → test+coverage → bandit QA |
 | Link checker | `.github/workflows/lychee.yml` | Checks all `.md` files on push/PR to main |
-| Docker Compose | `docker-compose.yml` | Two containers: tickframe + ml-service |
+| Docker Compose | `docker-compose.yml` | Three containers: tickframe, ml-service, postgres |
 | Dockerfile | `Dockerfile` | Main application image |
 | ML Dockerfile | `ml_service/Dockerfile` | ML microservice image |
 
@@ -212,7 +212,7 @@ The team supports two setup paths:
 ### 5.1 Docker Compose (Primary / Recommended)
 
 ```bash
-# Build and run both containers
+# Build and run all containers
 docker compose up --build
 
 # For a clean rebuild (no cache)
@@ -220,7 +220,7 @@ docker compose build --no-cache
 docker compose up -d
 ```
 
-Opens at `http://localhost:8080`. The ML service is auto-started as a second container.
+Opens at `http://localhost:8080`. The ML service and PostgreSQL are auto-started as companion containers.
 
 ### 5.2 Local Development (Without Docker)
 

@@ -111,7 +111,7 @@
 
 ---
 
-## Sprint 6 — MVP v3 (Assignment 6 Week 7)
+## Sprint 6 — MVP v3 (Assignment 6 Week 7) ✅ Completed
 
 | Field | Value |
 |---|---|
@@ -119,24 +119,28 @@
 | **Dates** | Week 7 (2026-07-14 – 2026-07-20) |
 | **Goal** | Deliver final course version MVP v3 — follow-up maintenance, fixes from Week 6 trial, final transition, Demo Day preparation. |
 | **Focus** | Customer trial feedback, final transition, MVP v3 release, Demo Day |
+| **Release** | [v3.0.0](https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v3.0.0) — MVP v3 |
 
-**PBIs:**
-- [#201 PBI-130](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/201) — PostgreSQL infrastructure migration — SQLite to PostgreSQL 17
-- [#202 PBI-131](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/202) — Pattern filtering and confidence threshold controls
-- [#216 PBI-132](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/216) — Fix UI glitches on timeframe switch
-- [#217 PBI-133](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/217) — Implement scan results export
+**Delivered PBIs:**
+- [#201 PBI-130](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/201) — PostgreSQL infrastructure migration — SQLite to PostgreSQL 16 ✅
+- [#202 PBI-131](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/202) — Pattern filtering and confidence threshold controls ✅
+- [#216 PBI-132](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/216) — Fix UI glitches on timeframe switch ✅
+- [#217 PBI-133](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/217) — Implement scan results export ✅
+- [#225](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/225) — Sprint 6 maintenance and ML fixes ✅
+- [#226](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/226) — Dual ML model integration (DT/DB + H&S) ✅
+- [#227](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/227) — DT/DB integration documentation ✅
 
-**Course Tasks & Documentation:**
-- [#181](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/181) — Follow-up maintenance from Week 6 trial feedback
-- [#182](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/182) — Final transition and MVP v3 release
-- [#183](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/183) — Record public sanitized demo video for MVP v3
-- [#184](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/184) — Sprint 5 and Sprint 6 reports
-- [#185](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/185) — Prepare presentation slides and rehearsal for Demo Day
-- [#218](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/218) — Course Task: Conduct Sprint 6 Review meeting
-- [#219](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/219) — Course Task: Conduct Sprint 6 Retrospective
-- [#220](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/220) — Course Task: Write Week 7 reflection and LLM report
-- [#221](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/221) — Course Task: Complete customer transition confirmation and update handover
-- [#222](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/222) — Course Task: Final documentation maintenance for Sprint 6
+**Course Tasks & Documentation (delivered):**
+- [#181](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/181) — Follow-up maintenance from Week 6 trial feedback ✅
+- [#182](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/182) — Final transition and MVP v3 release ✅
+- [#183](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/183) — Record public sanitized demo video for MVP v3 ✅
+- [#184](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/184) — Sprint 5 and Sprint 6 reports ✅
+- [#185](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/185) — Prepare presentation slides and rehearsal for Demo Day ✅
+- [#218](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/218) — Course Task: Conduct Sprint 6 Review meeting ✅
+- [#219](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/219) — Course Task: Conduct Sprint 6 Retrospective ✅
+- [#220](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/220) — Course Task: Write Week 7 reflection and LLM report ✅
+- [#221](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/221) — Course Task: Complete customer transition confirmation and update handover ✅
+- [#222](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/222) — Course Task: Final documentation maintenance for Sprint 6 ✅
 
 ---
 

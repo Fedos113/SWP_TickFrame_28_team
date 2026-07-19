@@ -163,7 +163,7 @@ The application is deployed and accessible at:
 
 This is a university VM deployment used for development and trial access. Availability depends on the VM being powered on. If the VM is unreachable, use the Docker quick start above to run locally.
 
-**Week 6 status:** The VM deployment was demonstrated during the Sprint 5 review (2026-07-10). A PostgreSQL migration and updated deployment are planned for Sprint 6 (Week 7).
+**Week 7 status:** The VM deployment was updated with the final MVP v3 version on 2026-07-17. The deployment now includes 3 Docker Compose services (ML Service, TickFrame, PostgreSQL) with database credentials configured via environment variables.
 
 ---
 
@@ -231,14 +231,16 @@ The following documentation pages are the main entry points for normal use, oper
 
 ### Documentation Sufficiency Assessment
 
-**Current handover level:** `Ready for independent use` (Sprint 5 review completed)
+**Current handover level:** `Ready for independent use`
 
-**Sufficiency verdict:** The documentation set covers all areas needed for independent use — setup, deployment, configuration, operation, troubleshooting, architecture, testing, contribution, and handover. The following gaps remain and will be addressed in Sprint 6 (Week 7):
+**Customer-confirmation status:** `Accepted` (confirmed during Sprint 6 review, 2026-07-17)
 
-- **Customer trial:** The Sprint 5 review (2026-07-10) covered progress and architecture, but the customer has not yet independently trialled the release or reviewed the documentation set. A formal Part 5 transition-readiness session is needed.
-- **PostgreSQL migration pending:** The architecture review identified that PostgreSQL is required instead of SQLite. Handover docs (env-var table, architecture diagram, deployment steps) will be updated after PBI-130 is completed.
-- **Final access details:** The university VM deployment URL may change or be decommissioned after grading. Final access instructions will be confirmed in Week 7.
-- **Transition confirmation:** The customer has not yet confirmed acceptance of this handover document (status: pending).
+**Sufficiency verdict:** The documentation set covers all areas needed for independent use — setup, deployment, configuration, operation, troubleshooting, architecture, testing, contribution, and handover. All gaps identified in Week 6 have been addressed:
+
+- **Customer trial completed:** The Sprint 6 review (2026-07-17) served as the formal transition-readiness session. The customer reviewed the full documentation set and confirmed acceptance.
+- **PostgreSQL migration completed:** PostgreSQL 16 container included in Docker Compose with env-var credentials. Handover docs updated with current architecture (database env-var table, deployment steps, migration script).
+- **Final access details confirmed:** The university VM (http://10.93.26.164:8080/) continues to serve the latest deployment. Docker quick-start instructions remain the primary access path for local use.
+- **Transition confirmed:** The customer accepted the handover documentation during the Sprint 6 review. No further changes were requested before defense.
 
 ---
 
@@ -260,14 +262,14 @@ The following documentation pages are the main entry points for normal use, oper
 
 ## Handover Status
 
-### Current Week 6 State
+### Current Week 7 State (Final)
 
 | Status | Value |
 |---|---|
 | **Handover level reached** | `Ready for independent use` |
-| **Customer-confirmation status** | `Pending confirmation` |
+| **Customer-confirmation status** | `Accepted` |
 
-**Explanation:** The product is functionally complete for independent use — the customer can run it locally or deploy it via Docker. The Sprint 5 review (2026-07-10) covered progress, the indicator library, ML pattern detection, and an architecture review. The customer requested a PostgreSQL migration (PBI-130) and pattern filtering (PBI-131) before final sign-off. The formal Part 5 transition-readiness meeting and independent customer trial have not yet taken place and are scheduled for Sprint 6 (Week 7).
+**Explanation:** The product is functionally complete for independent use — the customer can run it locally or deploy it via Docker. The Sprint 6 review (2026-07-17) served as the final transition confirmation. All customer-requested changes from Week 6 were addressed (PostgreSQL migration, pattern filtering, coin metrics, UI fixes, 6 ML patterns). The customer explicitly approved the increment as the final course delivery and confirmed no further changes are required before defense.
 
 ### What Has Been Handed Over
 
@@ -293,15 +295,16 @@ The following documentation pages are the main entry points for normal use, oper
 - The application is designed for desktop use on Chromium-based browsers
 - The GitHub repository itself, CI pipelines, and GitHub Pages site are managed by the team's university accounts; fork the repository to gain full administrative control
 
-### What Still Requires Team Support
+### What Still Requires Team Support (Final State)
 
-| Item | Status | Week 7 Plan |
+| Item | Status | Notes |
 |---|---|---|
-| Customer trial and documentation review | Pending — Sprint 5 review completed (2026-07-10); formal Part 5 transition-readiness session still needed | Conduct Part 5 meeting, gather feedback, update docs |
-| Customer-confirmation of handover document | Pending — Sprint 5 review completed; formal acceptance pending Part 5 session | Schedule Part 5 meeting, ask customer to accept or identify changes |
-| Final access arrangement for MVP v3 | Pending — VM deployment outdated; PostgreSQL migration in progress | Complete PBI-130 (PostgreSQL), deploy updated version, confirm final access |
-| Any post-course issues or feature requests | Post-course | File as GitHub issues (no guaranteed response after course ends) |
-| CI pipeline and GitHub Pages admin | Retained by team — tied to university accounts | Customer can fork for independent CI/Pages control |
+| Customer trial and documentation review | ✅ Completed | Sprint 6 review (2026-07-17) served as final transition confirmation. Customer reviewed and accepted. |
+| Customer-confirmation of handover document | ✅ Completed | Customer accepted the handover documentation. Status: `Accepted`. |
+| Final access arrangement for MVP v3 | ✅ Completed | PostgreSQL migration complete. VM deployment updated with all 3 services. |
+| Known limitations | Documented | See [Known Limitations](#known-limitations) above. Anomaly detection not delivered; ML only on 5m; DT/DB precision low. |
+| CI pipeline and GitHub Pages admin | Retained by team | Tied to university accounts. Customer can fork for independent CI/Pages control. |
+| Post-course issues or feature requests | Post-course | File as GitHub issues (no guaranteed response after course ends). |
 
 ---
 
