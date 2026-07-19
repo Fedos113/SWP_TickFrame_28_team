@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import csv
-import io
 import json
 import os
 import re
@@ -166,7 +165,6 @@ async def clear_market_data(
 ) -> None:
     """Delete all candle and ML scan data. Next request for each coin/interval
     will re-fetch fresh data from the exchange API."""
-    import asyncio
     from . import cache as cache_module
 
     db = await get_db(database_url=database_url, use_sqlite=use_sqlite, db_path=db_path)

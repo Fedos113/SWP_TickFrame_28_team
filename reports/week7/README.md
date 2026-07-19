@@ -1,6 +1,6 @@
 # Week 7 Public Report — Sprint 6 / MVP v3 (Assignment 7)
 
-**Project:** SWP TickFrame — cryptocurrency chart workstation with real-time Bybit market data, WebSocket streaming, Lightweight Charts v5 candlestick charts, modular drawing toolbar, 445+ technical indicators, and ML pattern analysis (6 patterns).
+**Project:** SWP TickFrame — cryptocurrency chart workstation with real-time Bybit market data, WebSocket streaming, Lightweight Charts v5 candlestick charts, modular drawing toolbar, 445+ technical indicators, ML pattern analysis (6 patterns), and PostgreSQL persistence.
 
 **Team 28** · [GitHub Repository](https://github.com/Fedos113/SWP_TickFrame_28_team)
 
@@ -23,8 +23,9 @@
 |---|---|
 | **Sprint Goal** | Deliver MVP v3 — follow-up maintenance, fixes from Week 6 trial, final transition, Demo Day preparation |
 | **Sprint dates** | 2026-07-14 – 2026-07-20 |
-| **Total Story Points** | **18 SP** (estimated across 4 product PBIs + 5 course-task issues) |
+| **Total Story Points** | **35 SP** (4 product PBIs + 8 course-task issues) |
 | **Completed PBIs** | PBI-130 PostgreSQL migration (#201), PBI-131 Pattern filtering (#202), PBI-132 UI glitch fixes (#216), PBI-133 Scan results export (#217), PBI-134 DT/DB dual-model ML detection (#226) |
+| **Scope summary** | PostgreSQL migration, pattern filtering, ML DT/DB patterns, UI overhaul (coin search, market header, indicators fix), VM deployment, customer transition confirmation, final documentation |
 
 ---
 
@@ -38,11 +39,12 @@ The following changes were delivered in Sprint 6 as follow-up to the Week 6 tria
 - **DT/DB dual-model ML detection** (PBI-134) — Double Top and Double Bottom XGBoost detectors added alongside existing H&S pipeline. Backward-compatible API. Numba-accelerated extrema selection.
 - **Pre-computation architecture** — All coins analysed by ML before project initialisation. "Analyze" retrieves pre-calculated results from PostgreSQL. First-time startup ≈3–4 min; subsequent startups instant.
 - **Pattern filter fix** — Shared `_patternFilter` state between toolbar and renderer so checkboxes actually filter chart markers.
-- **Confidence threshold calibration** — DT/DB thresholds calibrated to actual model output (previously required 0.75/0.80, now matches model distribution).
-- **Lightweight Charts local serving** — CDN reference replaced with local npm bundle to support isolated Docker environments.
+- **Confidence threshold calibration** — DT/DB thresholds calibrated to actual model output.
+- **Lightweight Charts local serving** — CDN reference replaced with local npm bundle for isolated Docker environments.
 - **CoinGecko cold-boot fix** — Default coin icons hardcoded; external API called in background only.
 - **Single-chart architecture** — Per-coin stacked chart instances replaced with single shared instance for stability.
-- **Unified "Matrix" design system** — Black + phosphor-green dark theme, white + muted-green light theme. Themed chart panes, indicators panel, drawing toolbar.
+- **Unified "Matrix" design system** — Black + phosphor-green dark theme, white + muted-green light theme.
+- **Final VM deployment** — Updated university VM with 3 containers (ML, TickFrame, PostgreSQL).
 
 ---
 
@@ -143,45 +145,52 @@ Results from the Sprint 6 review (2026-07-17):
 | UAT-001: Scan and view chart patterns | ✅ Pass | 6/6 patterns working; pre-analysed in DB, instant retrieval |
 | UAT-002: Toggle chart timeframes | ⏳ Partial | Switching works; ML limited to 5m timeframe |
 | UAT-003: Filter patterns by type | ✅ Pass | Toggle filter next to patterns panel |
-| UAT-004: Real-time price sidebar | ✅ Pass | WebSocket live prices continue working |
+| UAT-004: Real-time price sidebar | ✅ Pass | WebSocket live prices |
 | UAT-005: Theme toggle | ✅ Pass | Unchanged, still passing |
 | UAT-006: WebSocket real-time candles | ✅ Pass | Live updates from Bybit, DB cache fallback |
 | UAT-007: Indicator sub-charts | ✅ Pass | Indicators now movable without overlap |
 | UAT-008: Configure pattern analysis range | ✅ Pass | Slider with configurable range |
 | UAT-009: Sidebar coin search and addition | ✅ Pass | Infinite coin addition with search |
-| UAT-010: Coin metrics (5m/1h/4h change, market cap, supply) | ✅ Pass | Displayed from CoinGecko + candle calculations |
+| UAT-010: Coin metrics header | ✅ Pass | 5m/1h/4h change, market cap, supply from CoinGecko |
 
 Full details: [docs/user-acceptance-tests.md](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/docs/user-acceptance-tests.md)
 
 ---
 
-## 9. Release and Changelog
+## 9. Final SemVer Release — MVP v3
 
-| Artifact | Link |
-|---|---|
-| MVP v3 SemVer release | [v3.0.0](https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v3.0.0) |
-| Changelog | [CHANGELOG.md](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/CHANGELOG.md) |
-| Public sanitized demo video | [Demo](https://drive.google.com/file/d/1Otmlahg1sAH8jTMJmSWi85pBt8RAX6lz/view?usp=sharing) |
+[v3.0.0 — MVP v3 (Sprint 6 Final Release)](https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v3.0.0)
 
 ---
 
-## 10. Demo Day Preparation Summary
+## 10. Changelog
 
-- **Slide deck:** Refined based on Week 7 lab rehearsal feedback. Submitted as PDF alongside Week 7 Moodle PDF.
-- **Presentation structure (7 min):** Project context and target users → Final product and key requirements → Pre-recorded demo (<2 min) → Customer usefulness and deployment status → Engineering, process, and quality evidence → Remaining limitations and handover status → Team contribution and reflection → Links to deployed product and repository.
-- **Pre-recorded demo:** Under 2 minutes, covering final MVP v3 state including improvements added in Sprint 6.
-- **Team attendance:** All 5 team members attending Demo Day.
-- **Team presentation:** Each member presents at least one slide.
-- **Q&A (7 min):** Person who worked on relevant part answers where possible.
+[CHANGELOG.md](https://github.com/Fedos113/SWP_TickFrame_28_team/blob/main/CHANGELOG.md)
 
 ---
 
-## 11. Sprint Review Evidence
+## 11. Public Sanitized Demo Video
+
+[Public sanitized demo video — MVP v3](https://drive.google.com/file/d/1Otmlahg1sAH8jTMJmSWi85pBt8RAX6lz/view?usp=sharing)
+
+---
+
+## 12. Demo Day Preparation Summary
+
+- Slide deck prepared and refined for Week 7 lab rehearsal
+- Week 7 lab rehearsal completed (2026-07-17): 5-min presentation + 3-min Q&A
+- Each team member assigned slides to present
+- Pre-recorded demo segment prepared for Week 8 Demo Day (under 2 minutes)
+- Full presentation timing rehearsed to fit 7-min Demo Day limit
+
+---
+
+## 13. Sprint Review — Summary, Transcript, and Notes
 
 | Artifact | Link |
 |---|---|
 | Sprint Review summary | [reports/week7/sprint-review-summary.md](sprint-review-summary.md) |
-| Sprint Review transcript | [reports/week7/sprint-review-transcript.md](sprint-review-transcript.md) |
+| Sprint Review transcript | [reports/week7/sprint-review-transcript.md](sprint-review-transcript.md) (published — recording/publication permitted) |
 | Sprint Review notes | [reports/week7/sprint-review-notes.md](sprint-review-notes.md) |
 | Sprint Retrospective | [reports/week7/retrospective.md](retrospective.md) |
 | Reflection | [reports/week7/reflection.md](reflection.md) |
@@ -191,24 +200,23 @@ Full details: [docs/user-acceptance-tests.md](https://github.com/Fedos113/SWP_Ti
 
 ---
 
-## 12. Final Product Status
+## 14. Final Product Status
 
-MVP v3 is the final course version delivered at the end of Sprint 6. The application is a fully functional cryptocurrency chart workstation with:
+**MVP v3** (v3.0.0) is the final course version of SWP TickFrame. All planned PBIs for Sprint 6 have been delivered:
 
-- **Real-time data:** WebSocket live candles and prices from Bybit (primary) and Binance (fallback)
-- **Charting:** Lightweight Charts v5 with candlestick charts, 5 timeframes (5m, 15m, 1h, 4h, 1d)
-- **Indicators:** 445+ technical indicators via `lightweight-charts-indicators` library
-- **Drawing tools:** 13 drawing tools via `lightweight-charts-drawing` library
-- **ML pattern detection:** 6 patterns (HS, InHS, DT, DB, Flags, Wedge) via XGBoost microservice
-- **Database:** PostgreSQL 16 persistence with startup migrations
-- **Deployment:** Docker Compose with 3 containers (TickFrame, ML Service, PostgreSQL)
-- **UI:** Unified Matrix design system, coin search sidebar, market header with metrics, pattern filtering
+- PostgreSQL persistence with Docker Compose (3 containers)
+- 6 ML patterns with pre-computation architecture (instant "Analyze")
+- Pattern filtering by type
+- UI overhaul: coin search, market header, draggable indicators
+- VM deployment with latest version
+- Complete documentation set maintained
+- Customer handover accepted (`Ready for independent use` / `Accepted`)
 
-**What was not delivered:** Anomaly detection (dropped due to infeasibility within scope), multi-timeframe ML (all patterns on 5m only), concurrency stress-testing.
+**Known limitations:** Anomaly detection not delivered; ML only on 5m timeframe; DT/DB precision needs improvement; container architecture couples backend and frontend; concurrency not stress-tested.
 
 ---
 
-## 13. Contribution Traceability
+## 15. Contribution Traceability
 
 | Person | Role | Issues | PRs | Reviews | Testing | QA | Docs | Transition / Deployment | Demo Prep |
 |---|---|---|---|---|---|---|---|---|---|
@@ -221,18 +229,22 @@ MVP v3 is the final course version delivered at the end of Sprint 6. The applica
 
 ---
 
-## 14. Screenshots
+## 16. Screenshots
 
 Screenshots evidence for inspectable Week 7 artifacts:
 
 ### Sprint 6 Milestone
 ![Sprint 6 milestone](images/sprint-6-milestone.png)
+*Sprint 6 milestone with goal, dates, and issue list*
 
 ### MVP v3 Release (v3.0.0)
 ![MVP v3 release](images/mvp-v3-release.png)
+*v3.0.0 MVP v3 Final Release on GitHub*
 
-### Example Reviewed PR
-![Example reviewed PR](images/example-pr.png)
+### Final Product Access — VM Deployment
+![Final product access](images/final-product-access.png)
+*SWP TickFrame running on university VM at http://10.93.26.164:8080/*
 
-### Product Access — Deployed VM
-![Deployed VM](images/deployed-vm.png)
+### Example Reviewed PR — Dual ML Model Integration
+![Example reviewed PR](images/example-pr-week7.png)
+*PR #230 — Dual ML model integration with reviewed approval*

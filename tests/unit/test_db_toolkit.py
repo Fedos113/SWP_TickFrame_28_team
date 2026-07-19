@@ -12,7 +12,6 @@ from tickframe.backend.services.db_toolkit import (
     count_candles,
     export_candles,
     get_candle_range,
-    get_db,
     get_patterns,
     import_candles,
     list_all_scanned_symbols,

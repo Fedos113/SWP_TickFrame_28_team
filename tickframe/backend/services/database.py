@@ -6,7 +6,7 @@ import os
 import sqlite3
 from pathlib import Path
 
-import asyncpg
+import asyncpg  # type: ignore[import-untyped]
 
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
 DB_PATH = DATA_DIR / "tickframe.db"
@@ -120,13 +120,12 @@ CREATE TABLE IF NOT EXISTS ml_scans (
 class DatabaseService:
     def __init__(self, database_url: str | None = None, use_sqlite: bool = False, db_path: str | Path | None = None):
         self.use_sqlite = use_sqlite
+        self._pool: asyncpg.Pool | None = None
         if use_sqlite:
             self._db = str(db_path or DB_PATH)
             DATA_DIR.mkdir(parents=True, exist_ok=True)
-            self._pool = None
         else:
             self._database_url = database_url or os.environ.get("DATABASE_URL", DEFAULT_DATABASE_URL)
-            self._pool: asyncpg.Pool | None = None
 
     async def init(self) -> None:
         if self.use_sqlite:
@@ -134,6 +133,7 @@ class DatabaseService:
             await loop.run_in_executor(None, self._init_tables_sqlite)
             return
         self._pool = await asyncpg.create_pool(self._database_url)
+        assert self._pool is not None
         async with self._pool.acquire() as conn:
             await conn.execute(SCHEMA_PG)
             await self._migrate_pg(conn)
