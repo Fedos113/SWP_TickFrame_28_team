@@ -25,6 +25,7 @@ export default [
         TFIndicatorPanel: "readonly",
         TFIndicatorChips: "readonly",
         TFIndicatorPanes: "readonly",
+        showLoading: "readonly",
       },
     },
     rules: {

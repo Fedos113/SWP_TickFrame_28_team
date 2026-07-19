@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os as _os
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from pydantic import BaseModel
@@ -263,8 +264,6 @@ async def save_settings(payload: SettingsPayload, db: DatabaseService = Depends(
 # ---------------------------------------------------------------------------
 # Admin / DB Toolkit endpoints (dev-only, gated by ENABLE_DB_ADMIN_API)
 # ---------------------------------------------------------------------------
-
-import os as _os
 
 if _os.environ.get("ENABLE_DB_ADMIN_API", "").lower() in ("1", "true", "yes"):
 
