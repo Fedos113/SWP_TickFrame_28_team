@@ -17,7 +17,7 @@
 | **MVP v1** | [v1.0.0](https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/SemVer) (Sprint 2) |
 | **Sprint 3** | [v1.1.0](https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v1.1.0) |
 | **MVP v2** | [v2.0.0](https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v2.0.0) (Sprint 4) |
-| **Week 6 Trial** | [v2.2.0-trial] (Sprint 5) |
+| **Week 6 Trial** | [v2.2.0](https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v2.2.0) (Sprint 5) |
 | **MVP v3** | [v3.0.0](https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v3.0.0) (Sprint 6 — Assignment 7) |
 
 ---
