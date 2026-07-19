@@ -5,7 +5,7 @@ All notable user-visible changes to this project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [3.0.0] — 2026-07-19 (MVP v3 — Assignment 6 Sprint 6)
 
 ### Fixed
 - **Double Top / Double Bottom patterns are now actually detected**: The `dtdb` detector's confidence on live 5m market data peaks around ~0.48, but the ML service required `0.75`/`0.80`, so no Double Top or Double Bottom was ever emitted. The `dtdb` thresholds are now calibrated to the current model so all four pattern types (Classic H&S, Inverse H&S, Double Top, Double Bottom) are detected, saved to the database on startup, and returned by `POST /api/analyze/{symbol}`.
@@ -79,38 +79,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - **Text annotation, Callout, Brush, Highlighter tools**: Removed from drawing toolbar due to rendering issues.
 - **Keyboard shortcuts for individual tools**: Removed to prevent interference with text input; Escape/Delete retained.
-
----
-
-## [2.0.0] — 2026-07-05
-
-### Added
-- (Sprint 6 items will be added here)
-
----
-
-## [2.2.0] — 2026-07-10 (Sprint 5 — Week 6 Trial Release)
-
-### Added
-- **445+ technical indicators subsystem**: Integrated `lightweight-charts-indicators` library with searchable panel UI. Indicators grouped by category (Standard, Candlestick Patterns, Community). RSI (14) auto-applied on symbol switch. ([#198](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/198))
-- **Drawing toolbar refinements**: 3-column grid layout, 30x30px buttons, 14px icons, repositioned to top:40px. All primitives set z-order to top for proper rendering above indicator overlays. ([#199](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/199))
-- **Adaptive price label precision**: Drawing price labels use adaptive decimal precision based on price magnitude. Human-readable ISO timestamps on horizontal/vertical/cross lines. Adaptive price range label formatting. ([#199](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/199))
-- **ML training pipeline**: XGBoost-based pattern detection with 4 trained models — Head & Shoulders, Double Top, Double Bottom, Flags. Inference time <0.5s per 1k candles. ([#173](https://github.com/Fedos113/SWP_TickFrame_28_team/pull/173))
-- **Customer-handover documentation**: New `docs/customer-handover.md` with Transition Scope, Configuration & Secrets, Setup/Deployment, Documentation Entry Points, Known Limitations, and sufficiency assessment. ([#179](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/179))
-- **Contributor guidance**: New `CONTRIBUTING.md` with workflow, setup, standards, testing, CI, PR process, and DoD. ([#189](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/189))
-- **AI agent guidance**: New `AGENTS.md` with safety rules, project context, tech stack, ADRs, testing strategy, and assignments reference. ([#189](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/189))
-- **Customer-facing documentation polish**: SVG architecture diagram, troubleshooting section, UI screenshot, relative links for documentation table. ([#194](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/194))
-- **Product Backlog and roadmap**: Sprint 5 and Sprint 6 milestones, backlog sections, and roadmap updates for Assignment 6. ([#187](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/187))
-- **Assignment 6 scaffolding**: Context file, task breakdown, issue template, contribution tracking. ([#188](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/188))
-
-### Fixed
-- **WebSocket race condition on symbol switch**: Stale candle messages no longer apply after switching trading pairs. Chart scale resets properly on cached data loads. Sidebar coin switching awaits candle loading before starting WebSocket. ([#199](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/199))
-- **Keyboard shortcut handling**: Shortcut handling skips when focus is on INPUT/TEXTAREA elements. Delete key (not Backspace) removes drawings. ([#199](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/199))
-
-### Removed
-- Text annotation, callout, brush, highlighter tools from drawing toolbar (superseded by indicators subsystem). ([#199](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/199))
-
----
 
 ## [2.0.0] — 2026-07-06 (MVP v2 — Sprint 4)
 
@@ -231,7 +199,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-[Unreleased]: https://github.com/Fedos113/SWP_TickFrame_28_team/compare/2.2.0...HEAD
+[3.0.0]: https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v3.0.0
+[Unreleased]: https://github.com/Fedos113/SWP_TickFrame_28_team/compare/v3.0.0...HEAD
 [2.2.0]: https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/2.2.0
 [2.0.0]: https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/2.0.0
 [1.1.0]: https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v1.1.0

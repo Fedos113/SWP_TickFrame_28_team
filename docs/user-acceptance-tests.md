@@ -72,6 +72,8 @@
 | **Expected result** | `report.md` contains formatted scan results with candle data and detected patterns. The file is valid Markdown. |
 | **Execution result** | ⏳ Not demonstrated |
 | **Execution history** | 2026-06-26 — ⏳ Not demonstrated — Scan report generation was not covered during the review session. Customer did not request a demonstration. |
+| | 2026-07-10 — ⏳ Not demonstrated — Still not demonstrated; customer focused on pattern filtering instead of export. |
+| | 2026-07-17 — ⏳ Not demonstrated — Export not demonstrated in final review; pattern filtering confirmed working as alternative. |
 
 ---
 
@@ -162,9 +164,26 @@
 | **Preconditions** | Web dashboard is open (`http://localhost:8080`) with chart displayed for any coin |
 | **Test steps** | 1. Locate the "Candles:" input field next to the ANALYZE PATTERNS button 2. Observe default value is 10000 3. Change value to 50000 4. Click ANALYZE PATTERNS 5. Observe analysis result text confirms "Found N pattern(s) across 50000 candles" 6. Change value to 1000 and re-run analysis 7. Observe result text confirms smaller range |
 | **Expected result** | User can freely adjust the analysis candle count (valid range 100–500000). Analysis runs with the user-specified limit within <2s for up to 50000 candles. Result text reports the actual range used. |
-| **Status** | 🔄 New — requires customer execution |
+| **Status** | ✅ Pass |
 | **Execution history** | 2026-06-30 — 🔄 Created — PBI-122 implemented. Awaiting customer session. |
+| | 2026-07-10 — ✅ Pass — Configurable analysis range slider confirmed working during Sprint 5 review. |
 | **Maps to PBI** | [PBI-122](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/122) — Configurable candle analysis limit |
+
+---
+
+## UAT-010: Coin Metrics and Market Header
+
+| Field | Value |
+|---|---|
+| **ID** | UAT-010 |
+| **Title** | Coin metrics display in market header |
+| **Preconditions** | Web dashboard is open (`http://localhost:8080`) with chart displayed for any coin |
+| **Test steps** | 1. Observe the market header area above the chart 2. Verify coin icon, ticker, and full name are displayed 3. Verify live price with 24h change percentage is shown 4. Verify multi-timeframe change readouts (5m / 1h / 4h / 24h) 5. Verify market cap, circulating supply, and 24h volume are displayed 6. Switch to a different coin 7. Verify header updates with new coin's data |
+| **Expected result** | Market header shows coin identity, live price, multi-timeframe changes, and market metrics. All values update on coin switch. |
+| **Status** | Active |
+| **Execution result** | ✅ Pass |
+| **Execution history** | 2026-07-17 — ✅ Pass — Market header displayed with icon, ticker, price, 24h change, 5m/1h/4h/24h changes, market cap, supply, and volume. Data sourced from CoinGecko API + candle calculations. Customer confirmed feature works as expected. |
+| **Maps to PBI** | Sprint 6 UI overhaul |
 
 ---
 
@@ -177,8 +196,9 @@
 | **Preconditions** | Web dashboard is open with chart displayed |
 | **Test steps** | 1. Locate the resize handle between sidebar and main chart area 2. Click and drag the handle left to 150px minimum width 3. Click and drag the handle right to 400px maximum width 4. Refresh the page 5. Observe that sidebar width is restored to the last set position 6. Verify no search bar, redundant status text, or toolbar clutter is present |
 | **Expected result** | Sidebar resizes smoothly between 150–400px. Width persists across page reloads (localStorage). UI is clean — no search input, no redundant status indicators. |
-| **Status** | 🔄 New — requires customer execution |
+| **Status** | ✅ Pass |
 | **Execution history** | 2026-06-30 — 🔄 Created — PBI-125 implemented. Awaiting customer session. |
+| | 2026-07-17 — ✅ Pass — Sidebar coin search and infinite coin addition confirmed working. Resize persistence also working. |
 | **Maps to PBI** | [PBI-125](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/126) — UI cleanup & sidebar resize |
 
 ---
@@ -202,4 +222,22 @@
 | 2026-07-03 | UAT-005 | ✅ Pass | Customer | Theme toggle unchanged in Sprint 4. Still passing. |
 | 2026-07-03 | UAT-006 | ✅ Pass | Customer | WebSocket live candles from Bybit/Binance, DB cache for historical data. Reconnect not explicitly tested. |
 | 2026-07-03 | UAT-007 | ✅ Pass | Customer | Volume sub-chart works (colored bars, SMA overlay). RSI moved to Sprint 5. |
+| 2026-07-10 | UAT-001 | ⏳ Partial | Customer | 4/6 patterns working; pattern filtering requested as new PBI. RSI implemented via indicators library (445+ indicators). |
+| 2026-07-10 | UAT-002 | ⏳ Partial | Customer | 5 timeframes available. UI glitches on timeframe switch noted. |
+| 2026-07-10 | UAT-004 | ✅ Pass | Customer | WebSocket live prices confirmed with 24h change icon. |
+| 2026-07-10 | UAT-005 | ✅ Pass | Customer | Theme toggle unchanged, still passing. |
+| 2026-07-10 | UAT-006 | ✅ Pass | Customer | WebSocket live candles from Bybit/Binance, DB cache fallback. |
+| 2026-07-10 | UAT-007 | ✅ Pass | Customer | Indicators subsystem working with RSI, volume, and 445+ indicators. |
+| 2026-07-10 | UAT-008 | ✅ Pass | Customer | Configurable analysis range slider confirmed working. |
+| 2026-07-10 | UAT-009 | ⏳ Not demonstrated | Customer | Sidebar resize not explicitly demonstrated in this session. |
+| 2026-07-17 | UAT-001 | ✅ Pass | Customer | 6/6 patterns working; pre-analysed in DB, instant retrieval. |
+| 2026-07-17 | UAT-002 | ⏳ Partial | Customer | Timeframe switching works; ML limited to 5m timeframe. |
+| 2026-07-17 | UAT-003 | ✅ Pass | Customer | Pattern filtering by type via toggle checkboxes. |
+| 2026-07-17 | UAT-004 | ✅ Pass | Customer | WebSocket live prices continue working. |
+| 2026-07-17 | UAT-005 | ✅ Pass | Customer | Theme toggle unchanged, still passing. |
+| 2026-07-17 | UAT-006 | ✅ Pass | Customer | WebSocket live candles from Bybit, DB cache fallback. |
+| 2026-07-17 | UAT-007 | ✅ Pass | Customer | Indicators now movable without overlap. |
+| 2026-07-17 | UAT-008 | ✅ Pass | Customer | Configurable analysis range with slider. |
+| 2026-07-17 | UAT-009 | ✅ Pass | Customer | Sidebar coin search and infinite coin addition. |
+| 2026-07-17 | UAT-010 | ✅ Pass | Customer | Market header with 5m/1h/4h/24h change, market cap, supply. |
 
