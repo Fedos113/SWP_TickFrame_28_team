@@ -164,7 +164,7 @@ A PBI is **Done** when:
 |---|-------|--------|
 | [#181](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/181) | DOC: Follow-up maintenance from Week 6 trial feedback | Done |
 | [#182](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/182) | DOC: Final transition and MVP v3 release | Done |
-| [#183](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/183) | DOC: Record public sanitized demo video for MVP v3 | To Do |
+| [#183](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/183) | DOC: Record public sanitized demo video for MVP v3 | Done — [Google Drive](https://drive.google.com/file/d/1Otmlahg1sAH8jTMJmSWi85pBt8RAX6lz/view?usp=sharing) |
 | [#184](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/184) | DOC: Sprint 5 and Sprint 6 reports | Done |
 | [#185](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/185) | DOC: Prepare presentation slides and rehearsal | Done |
 | [#218](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/218) | Course Task: Conduct Sprint 6 Review meeting | Done |

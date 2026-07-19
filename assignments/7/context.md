@@ -12,7 +12,7 @@
 | **Team** | 28 |
 | **Repository** | https://github.com/Fedos113/SWP_TickFrame_28_team |
 | **License** | MIT |
-| **Description** | FastAPI-based cryptocurrency chart workstation with real-time Bybit market data, live WebSocket streaming, Lightweight Charts v5 candlestick charts, modular drawing toolbar, Fear & Greed Index, coin icons, SQLite 3-tier cache, and ML pattern analysis. |
+| **Description** | FastAPI-based cryptocurrency chart workstation with real-time Bybit market data, live WebSocket streaming, Lightweight Charts v5 candlestick charts, modular drawing toolbar, Fear & Greed Index, coin icons, PostgreSQL database, and ML pattern analysis (6 patterns). |
 | **Default Branch** | `main` (protected) |
 | **MVP v1** | [v1.0.0](https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/SemVer) (Sprint 2) |
 | **Sprint 3** | [v1.1.0](https://github.com/Fedos113/SWP_TickFrame_28_team/releases/tag/v1.1.0) |
@@ -232,6 +232,30 @@ Corresponding documentation issues created on GitHub:
 
 > Note: The Week 7 reflection and LLM report issue could not be created due to network timeout (gh API rate limiting / connectivity). Create it manually: `gh issue create --title "DOC: Add Week 7 reflection and LLM usage report" --label "documentation" --milestone "Sprint 6 — MVP v3" --body-file /tmp/issue5.md`
 
+### Final Week 7 Report & Maintained Documentation Alignment (Branch `assignment-6-parts-7-8-9-docs`)
+
+The branch `assignment-6-parts-7-8-9-docs` delivers the final Assignment 6 Parts 7–9 documentation, Sprint 6 closure artifacts, and maintained documentation alignment for the MVP v3 release.
+
+| Artifact | Path | Description |
+|---|---|---|
+| Week 7 Report Index | [`reports/week7/README.md`](../../reports/week7/README.md) | 31-section Week 7 report with 3 screenshots, transition outcome, UAT results |
+| Screenshots | [`reports/week7/images/`](../../reports/week7/images/) | 3 screenshots: final product access, MVP v3 release, Sprint 6 milestone |
+| Customer Handover | [`docs/customer-handover.md`](../../docs/customer-handover.md) | Status set to `Accepted` / `Ready for independent use` |
+| UAT Log | [`docs/user-acceptance-tests.md`](../../docs/user-acceptance-tests.md) | UAT-010 defined, Week 6+7 execution log appended |
+| Release Notes | [`CHANGELOG.md`](../../CHANGELOG.md) | v3.0.0 release entry (2026-07-19), Sprint 6 changes documented |
+| Roadmap | [`docs/roadmap.md`](../../docs/roadmap.md) | Sprint 6 marked completed, v3.0.0 release noted |
+| README | [`README.md`](../../README.md) | PostgreSQL, 3 containers, 6 patterns, v3.0.0, Matrix theme |
+| Architecture Docs | [`docs/architecture/README.md`](../../docs/architecture/README.md) | PostgreSQL, 3 containers, 6 patterns, deployment view corrected |
+| Development Process | [`docs/development-process.md`](../../docs/development-process.md) | PostgreSQL, 3 containers, Docker workflow updated |
+| User Stories | [`docs/user-stories.md`](../../docs/user-stories.md) | All 16 stories marked Done |
+| Product Backlog | [`docs/backlog.md`](../../docs/backlog.md) | Sprint 6 PBIs and course tasks all Done |
+| A7 Context | [`assignments/7/context.md`](../../assignments/7/context.md) | Memory7 updated with final Sprint 6 / Week 7 state |
+
+Corresponding documentation issues created on GitHub:
+- [#242](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/242) — DOC: Finalise Week 7 report, release artifacts, and UAT for MVP v3
+- [#243](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/243) — DOC: Align maintained documentation for Sprint 6 / MVP v3 final state
+- [#244](https://github.com/Fedos113/SWP_TickFrame_28_team/issues/244) — DOC: Update A7 context.md with final Sprint 6 / Week 7 status
+
 ---
 
 ## 10. Key Week 7 Deliverables — Updated Status
@@ -245,13 +269,16 @@ Corresponding documentation issues created on GitHub:
 | 5 | Sprint 6 Review + Retrospective | ✅ Done — reports created in `reports/week7/` |
 | 6 | Week 7 reports (README, review, reflection, retrospective, LLM) | ✅ Done — all 7 reports delivered |
 | 7 | Updated slide deck + rehearsed presentation video | Issue #185 created |
-| 8 | Public sanitized demo video | Issue #183 created |
+| 8 | Public sanitized demo video | ✅ Done — [Google Drive](https://drive.google.com/file/d/1Otmlahg1sAH8jTMJmSWi85pBt8RAX6lz/view?usp=sharing) |
 | 9 | Demo Day preparation (7-min presentation, <2-min demo) | Issue #185 created |
 | 10 | Week 7 Moodle PDF submission | Pending |
 | 11 | Final maintained documentation review | ✅ Done — customer-handover, DATABASE.md, architecture docs updated |
 | 12 | A7 scaffolding and Sprint 6 planning | ✅ Done |
 | 13 | DT/DB dual-model API integration and performance optimization | ✅ Done — merged via #228, #230 |
 | 14 | Sprint review documentation and handover reports | ✅ Done — `sprint-review-docs` branch |
+| 15 | Week 7 report images and final release artifacts | ✅ Done — 3 screenshots, v3.0.0 release, CHANGELOG |
+| 16 | Maintained documentation alignment for MVP v3 | ✅ Done — README, architecture, dev-process, backlog, user-stories |
+| 17 | A7 context.md final update with issue references | ✅ Done — #242, #243, #244 created |
 
 ---
 
@@ -262,7 +289,7 @@ Corresponding documentation issues created on GitHub:
 | **Backend** | Python 3.11, FastAPI, Uvicorn, httpx, websockets |
 | **Frontend** | Lightweight Charts v5, Canvas API, vanilla JS, lightweight-charts-drawing, lightweight-charts-indicators, oakscriptjs, Lucide icons, esbuild |
 | **Database** | PostgreSQL 16 (via asyncpg) |
-| **ML** | XGBoost (H&S and DT/DB detection), Numba, FastAPI microservice |
+| **ML** | XGBoost (6 patterns: H&S, Inverse H&S, Double Top, Double Bottom, Flags, Wedge), Numba, FastAPI microservice |
 | **Exchange** | Bybit v5 API (primary), Binance API (fallback) |
 | **Deployment** | Docker + Docker Compose (3 containers: ML, TickFrame, PostgreSQL) |
 | **CI** | GitHub Actions (ruff, mypy, pytest+cov, bandit, ESLint, Vitest, Lychee) |

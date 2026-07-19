@@ -210,9 +210,7 @@ Full details: [docs/user-acceptance-tests.md](https://github.com/Fedos113/SWP_Ti
 
 ## 23. Public Sanitized Demo Video
 
-*[Public sanitized demo video link — TBD]*
-
-The demo video will be recorded and linked here before the Week 7 submission deadline.
+[Public sanitized demo video — MVP v3](https://drive.google.com/file/d/1Otmlahg1sAH8jTMJmSWi85pBt8RAX6lz/view?usp=sharing)
 
 ---
 
